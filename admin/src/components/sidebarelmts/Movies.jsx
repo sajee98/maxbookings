@@ -13,10 +13,6 @@ function Movies() {
 
 
 
-    const {token} = useStateContext();
-    if (token) {
-      return <Navigate to = '/Login'></Navigate>
-    }
 
   useEffect(() => {
     (async () => await Load())();

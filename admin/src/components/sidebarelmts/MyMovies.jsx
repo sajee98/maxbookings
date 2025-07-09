@@ -31,7 +31,7 @@ function MyMovies() {
       name: "Movie Poster",
       selector: (row) => (
         <img
-          src={`http://localhost:8000/storage/${row.moviePoster}`}
+          src={row.imgUrl || "https://via.placeholder.com/150"} 
           alt={row.name}
           className="movie-img"
         />

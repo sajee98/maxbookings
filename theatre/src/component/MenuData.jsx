@@ -2,7 +2,7 @@
 export const MenuData = [
     {
         title: "Home",
-        URL:"/",
+        URL:"/maxbookings",
         cNAme:"nav-links",
         icon:"fa-solid fa-house-user"
     },

@@ -5,6 +5,7 @@ import DataTable from 'react-data-table-component';
 import { FaCheckCircle, FaTrash } from 'react-icons/fa';
 import './CurrentMovie.css';
 
+
 function MovieRequest() {
   const [movie, setMovieList] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
@@ -73,7 +74,7 @@ function MovieRequest() {
       name: "Movie Pic", 
       selector: row => (
         <img
-          src={`http://localhost:8000/storage/${row.moviePoster}`}
+          src={row.imgUrl || "https://via.placeholder.com/150"} // Fallback image if imgUrl is not available
           alt={row.movieName}
           className="movie-img"
         />

@@ -13,10 +13,7 @@ function PublishMovies() {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
-   const {token} = useStateContext();
-    if (token) {
-      return <Navigate to = '/Login'></Navigate>
-    }
+  
   useEffect(() => {
     (async () => await Load())();
   }, []);
@@ -73,7 +70,7 @@ function PublishMovies() {
       name: "Movie Pic", 
       selector: row => (
         <img
-          src={`http://localhost:8000/storage/${row.moviePoster}`}
+          src={row.imgUrl || "https://via.placeholder.com/150"} // Fallback image if imgUrl is not available`}
           alt={row.movieName}
           className="movie-img"
         />

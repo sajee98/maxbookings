@@ -75,7 +75,7 @@ function EditMovies() {
           <label>Movie Poster:</label>
           <div>
             <img 
-              src={imageUrl} 
+              src={movie.imgUrl || imageUrl} 
               alt={movie.movieName} 
               style={{ width: "150px", height: "auto" }} 
             />

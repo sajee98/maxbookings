@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('theatreName');
             $table->string('movieName');
-            $table->string('moviePoster');
+            //$table->string('moviePoster');
             $table->string('genre');
             $table->string('language');
             $table->string('duration');
@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('secondShow');
             $table->string('thirdShow');
             $table->string('price');
+            $table->string('imgUrl');
             $table->boolean('decision')->default(0);
 
             $table->timestamps();

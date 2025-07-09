@@ -13,20 +13,12 @@ import TheatreList from "./components/sidebarelmts/TheatreList";
 import PublishMovies from "./components/sidebarelmts/PublishMovies";
 import MovieRequest from "./components/sidebarelmts/AdminMovieRequest";
 import EditMovies from "./components/sidebarelmts/EditMovies";
-import LoginForm from "./Login/Login";
-import Register from "./Login/Register";
 
 
 const AppRouter = () => {
   return (
     <Routes>
-              < Route path="/login" element={<LoginForm />} />
-              < Route path="/register" element={<Register />} />
-              
-
       <Route element={<Mainlayout />}>
-        
-        // Mainlayout start
         <Route path="/" element={<Home />} />
         <Route path="/form" element={<Form />} />
         <Route path="/mymovies" element={<MyMovies />} />

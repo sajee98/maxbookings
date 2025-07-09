@@ -12,30 +12,6 @@ use App\Http\Controllers\MovieFunctionController;
 use App\Http\Controllers\SeatLockController;
 
 
-Route::post('/login', [AuthController::class, 'login']);
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-// Protected
-Route::middleware('auth:sanctum')->group(function () {
-
-    Route::post('/logout', [AuthController::class, 'logout']);
-
-    Route::get('/admin', function (Request $request) {
-        if ($request->user()->role !== 'theatre') {
-            return response()->json(['message' => 'Forbidden'], 403);
-        }
-        return response()->json(['message' => 'Welcome Admin']);
-    });
-
-    Route::get('/super-admin', function (Request $request) {
-        if ($request->user()->role !== 'super_admin') {
-            return response()->json(['message' => 'Forbidden'], 403);
-        }
-        return response()->json(['message' => 'Welcome Super Admin']);
-    });
-});
-
 
 
 Route::apiResource('/movieList',MovieController::class);

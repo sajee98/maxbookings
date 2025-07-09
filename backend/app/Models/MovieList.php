@@ -11,7 +11,7 @@ class MovieList extends Model
     protected $fillable =[
         'theatreName',
         'movieName',
-        'moviePoster',
+        //'moviePoster',
         'genre',
         'language',
         'duration',
@@ -19,6 +19,7 @@ class MovieList extends Model
         'secondShow',
         'thirdShow',
         'price',
+        'imgUrl',
         'decision'
                 
     ];

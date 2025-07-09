@@ -13,14 +13,15 @@ function Form() {
   const [secondShow, setSecondShow] = useState("");
   const [thirdShow, setThirdShow] = useState("");
   const [price, setPrice] = useState("");
+  const [imgurl, setImgUrl] = useState("");
   const [decision, setDecision] = useState("");
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setMoviePoster(file); // Update the movieName state with the selected file
-    }
-  };
+  // const handleImageChange = (event) => {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     setMoviePoster(file); // Update the movieName state with the selected file
+  //   }
+  // };
 
   const save = async (event) => {
     event.preventDefault();
@@ -36,10 +37,11 @@ function Form() {
     formData.append("secondShow", secondShow);
     formData.append("thirdShow", thirdShow);
     formData.append("price", price);
+    formData.append("imgUrl", imgurl);
     formData.append("decision", decision);
-    if (moviePoster) {
-      formData.append("moviePoster", moviePoster); // Attach the movie file
-    }
+    // if (moviePoster) {
+    //   formData.append("moviePoster", moviePoster); // Attach the movie file
+    // }
 
     try {
       await axios.post("http://127.0.0.1:8000/api/movieList", formData, {
@@ -127,8 +129,14 @@ function Form() {
                   <input type="text"  placeholder="Ticket Price" value={price} onChange={(event) => {setPrice(event.target.value); }} required />
                 </div>
                 <div className="input_field">
-                  <input type="file"  placeholder="Movie Pic"  onChange={handleImageChange} required  />
+                  <span>
+                    <i aria-hidden="true" className="fa fa-clock"></i>
+                  </span>
+                  <input type="text"  placeholder="Image URL" value={imgurl} onChange={(event) => {setImgUrl(event.target.value); }} required />
                 </div>
+                {/* <div className="input_field">
+                  <input type="file"  placeholder="Movie Pic"  onChange={handleImageChange} required  />
+                </div> */}
               
 
                 <div className="row clearfix">

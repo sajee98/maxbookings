@@ -16,7 +16,8 @@ function Movie() {
     setLoading(true);
     try {
       const result = await axios.get("http://127.0.0.1:8000/api/acceptMovie", {
-        params: { decision: searchQuery }
+        params: { decision: searchQuery },
+        withCredentials: true // Include credentials for CORS
       });
       const uniqueMovies = removeDuplicateMovies(result.data.data);
       setMovieList(uniqueMovies); 
@@ -53,7 +54,7 @@ function Movie() {
             movieData.map((movie) => (
               <TripData
                 key={movie.id} // Use a unique key from the movie
-                image={`http://localhost:8000/storage/${movie.moviePoster}`} // Ensure you use the correct image path field
+                image={movie.imgUrl} // Ensure you use the correct image path field
                 movieName={movie.movieName}
               />
             ))

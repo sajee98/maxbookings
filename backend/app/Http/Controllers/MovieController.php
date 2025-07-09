@@ -31,8 +31,9 @@ class MovieController extends Controller
         $request->validate([
             'theatreName' => 'required',
             'movieName' => 'required',
-            'moviePoster' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            //'moviePoster' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'genre' => 'required',
+            'imgUrl' => 'required',
             'language' => 'required',
             'duration' => 'required',
 
@@ -41,12 +42,12 @@ class MovieController extends Controller
         
         ]);
 
-        $path = $request->file('moviePoster')->store('images', 'public');
+       // $path = $request->file('moviePoster')->store('images', 'public');
 
         $movie = MovieList::create([
             'theatreName' => $request->theatreName,
             'movieName' => $request->movieName,
-            'moviePoster' => $path,
+            //'moviePoster' => $path,
             'genre' => $request->genre,
             'language' => $request->language,
             'duration' => $request->duration,
@@ -54,6 +55,7 @@ class MovieController extends Controller
             'secondShow' => $request->secondShow,
             'thirdShow' => $request->thirdShow,
             'price' => $request->price,
+            'imgUrl' => $request->imgUrl,
         ]);
 
         return response()->json([
